@@ -2,8 +2,10 @@
 
 import { Upload, FileText, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Button } from "../ui/Button";
 import { colors } from "@/constants/colors";
+import { images } from "@/constants/images";
 import { useFileUpload } from "@/hooks/useFileUpload";
 import type { UploadFormProps } from "@/types/resume";
 
@@ -45,6 +47,13 @@ const UploadForm = ({ onFileChange }: UploadFormProps) => {
               onChange={handleFileChange}
               accept=".pdf,.docx,.txt"
               className="hidden"
+            />
+            <Image
+              src={images.placeholders.resume}
+              alt="Resume preview placeholder"
+              width={200}
+              height={140}
+              className="absolute bottom-6 right-6 hidden sm:block opacity-35"
             />
             <div className="bg-slate-800/50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
               <Upload
