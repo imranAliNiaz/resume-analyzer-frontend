@@ -20,21 +20,20 @@ const AuthModal = ({ open, mode, onClose, onSwitchMode }: AuthModalProps) => {
   const { status, error } = useAppSelector((state) => state.auth);
   const toast = useToast();
 
-  const [prevOpen, setPrevOpen] = useState(open);
-  const [prevMode, setPrevMode] = useState(mode);
+  const isLogin = mode === "login";
 
-  if (open !== prevOpen || mode !== prevMode) {
-    setPrevOpen(open);
-    setPrevMode(mode);
+  useEffect(() => {
     if (open) {
       setEmail("");
       setPassword("");
       setFullName("");
       dispatch(clearError());
+      return;
     }
-  }
-
-  const isLogin = mode === "login";
+    setEmail("");
+    setPassword("");
+    setFullName("");
+  }, [open, mode, dispatch]);
 
   useEffect(() => {
     if (status === "authenticated" && open) {
@@ -125,11 +124,12 @@ const AuthModal = ({ open, mode, onClose, onSwitchMode }: AuthModalProps) => {
                 </button>
               </div>
 
-              <form className="mt-8 space-y-4">
+              <form className="mt-8 space-y-4" autoComplete="off">
                 <Input
                   label="Email"
                   type="email"
                   placeholder="you@company.com"
+                  autoComplete="off"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                 />
@@ -137,6 +137,7 @@ const AuthModal = ({ open, mode, onClose, onSwitchMode }: AuthModalProps) => {
                   label="Password"
                   type="password"
                   placeholder="••••••••"
+                  autoComplete="new-password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                 />
@@ -186,3 +187,4 @@ const AuthModal = ({ open, mode, onClose, onSwitchMode }: AuthModalProps) => {
 };
 
 export { AuthModal };
+

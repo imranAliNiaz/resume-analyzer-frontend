@@ -109,7 +109,6 @@ const Navbar = () => {
                   onClick={async () => {
                     await dispatch(logoutUserThunk());
                     setIsMenuOpen(false);
-                    dispatch(openAuthModal("login"));
                     toast({
                       type: "info",
                       title: "Logged out",

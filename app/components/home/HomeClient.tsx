@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Badge } from "../ui/Badge";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
@@ -16,7 +15,6 @@ import {
 } from "lucide-react";
 import { colors } from "@/constants/colors";
 import { fonts } from "@/constants/fonts";
-import { images } from "@/constants/images";
 import { useHomeLogic } from "@/hooks/useHomeLogic";
 
 const stagger = {
@@ -117,16 +115,6 @@ export default function HomeClient() {
             variants={rise}
             className="relative mx-auto max-w-lg w-full lg:max-w-none"
           >
-            <div className="absolute -top-12 -right-6 hidden md:block -z-10 opacity-60">
-              <Image
-                src={images.hero}
-                alt="Global hiring insights"
-                width={420}
-                height={420}
-                className="h-auto w-[360px] lg:w-[420px]"
-                priority
-              />
-            </div>
             <Card className="p-6 md:p-8">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
