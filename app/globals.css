@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Tailwind CSS v4 @theme rule */
+@theme inline {
+  --color-background: #0b0f1a;
+  --color-foreground: #e2e8f0;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+}
+
+:root {
+  --background: #0b0f1a;
+  --foreground: #e2e8f0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(
+      1200px 600px at 80% -10%,
+      rgba(56, 189, 248, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 400px at 10% 10%,
+      rgba(34, 211, 238, 0.08),
+      transparent 55%
+    ),
+    linear-gradient(180deg, rgba(11, 15, 26, 0.95), rgba(11, 15, 26, 1));
+}
+
+button,
+a,
+[role="button"],
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
